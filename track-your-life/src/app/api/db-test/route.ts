@@ -7,7 +7,11 @@ export async function GET() {
     // Optionally, list databases to confirm connection
     const dbs = await client.db().admin().listDatabases();
     return NextResponse.json({ status: 'success', databases: dbs.databases });
-  } catch (error) {
-    return NextResponse.json({ status: 'error', message: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    let message = 'An unknown error occurred';
+    if (error && typeof error === 'object' && 'message' in error && typeof (error as any).message === 'string') {
+      message = (error as any).message;
+    }
+    return NextResponse.json({ status: 'error', message }, { status: 500 });
   }
 }

@@ -1,26 +1,150 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+
+  /* Background and Text */
+  --background: #FAFCFB;
+  --foreground: #222623;
+
+  /* UI Surfaces */
+  --card: #FAFCFB;
+  --card-foreground: #222623;
+  --popover: #FAFCFB;
+  --popover-foreground: #222623;
+
+  /* Primary (Nordic Grass Green) */
+  --primary: #1EB355;
+  --primary-foreground: #F2FFFA;
+
+  /* Secondary/Muted (Neutral) */
+  --secondary: #E7EDEB;
+  --secondary-foreground: #222623;
+  --muted: #E7EDEB;
+  --muted-foreground: #69736C;
+
+  /* Accent (Vivid Mulberry) */
+  --accent: #B711D1;
+  --accent-foreground: #FFF2FE;
+
+  /* Destructive */
+  --destructive: #E63946;
+
+  /* Borders / Inputs */
+  --border: #D5DED9;
+  --input: #D5DED9;
+  --ring: #8D9991;
+
+  /* Charts */
+  --chart-1: #51DF8D;
+  --chart-2: #F780F9;
+  --chart-3: #B2BFB7;
+  --chart-4: #DF46EC;
+  --chart-5: #C0FEE1;
+
+  /* Sidebar */
+  --sidebar: #FAFCFB;
+  --sidebar-foreground: #222623;
+  --sidebar-primary: #1EB355;
+  --sidebar-primary-foreground: #F2FFFA;
+  --sidebar-accent: #B711D1;
+  --sidebar-accent-foreground: #FFF2FE;
+  --sidebar-border: #D5DED9;
+  --sidebar-ring: #8D9991;
+}
+
+.dark {
+  --background: #181b19;
+  --foreground: #FAFCFB;
+
+  --card: #222322;
+  --card-foreground: #FAFCFB;
+  --popover: #222623;
+  --popover-foreground: #FAFCFB;
+
+  --primary: #89F5BE;
+  --primary-foreground: #00490E;
+
+  --secondary: #454D47;
+  --secondary-foreground: #FAFCFB;
+  --muted: #454D47;
+  --muted-foreground: #C3CFC8;
+
+  --accent: #F780F9;
+  --accent-foreground: #380051;
+
+  --destructive: #FF8A8A;
+
+  --border: #69736C;
+  --input: #69736C;
+  --ring: #C3CFC8;
+
+  --chart-1: #1EB355;
+  --chart-2: #DF46EC;
+  --chart-3: #B2BFB7;
+  --chart-4: #B711D1;
+  --chart-5: #C0FEE1;
+
+  --sidebar: #222623;
+  --sidebar-foreground: #FAFCFB;
+  --sidebar-primary: #89F5BE;
+  --sidebar-primary-foreground: #00490E;
+  --sidebar-accent: #F780F9;
+  --sidebar-accent-foreground: #380051;
+  --sidebar-border: #69736C;
+  --sidebar-ring: #C3CFC8;
+}
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}

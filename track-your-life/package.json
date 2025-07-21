@@ -2,6 +2,7 @@
   "name": "track-your-life",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,10 +10,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.10.0",
     "clsx": "^2.1.1",
     "daisyui": "^5.0.46",
+    "dotenv": "^17.2.0",
     "lucide-react": "^0.525.0",
     "mongodb": "^6.17.0",
+    "mongoose": "^8.16.4",
     "next": "15.4.2",
     "next-auth": "^5.0.0-beta.29",
     "react": "19.1.0",

@@ -1,7 +1,13 @@
 import React from "react";
+import { auth, signOut } from "@/lib/auth";
+import Link from "next/link";
+import { SignOutButton } from "./SignOutButton";
+import LoginWithGoogle from "./LoginWithGoogle";
 
+export default async function Navbar() {
 
-export default function Navbar() {
+    const session = await auth();
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
@@ -23,6 +29,7 @@ export default function Navbar() {
                 </li> */}
                 <li><a>Docs</a></li>
                 <li><a>About</a></li>
+
 
                 
             </ul>
@@ -46,8 +53,11 @@ export default function Navbar() {
             </ul>
         </div>
         <div className="navbar-end gap-3">
-            <a className="btn btn-primary">Login</a>
-            {/* <a className="btn btn-soft btn-primary">Sign Up</a> */}
+            {session?.user ? (
+                <SignOutButton/>
+            ) : (
+                <LoginWithGoogle/>
+            )}
         </div>
         </div>
   )

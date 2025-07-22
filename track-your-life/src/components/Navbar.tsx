@@ -19,19 +19,8 @@ export default async function Navbar() {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li><a>Home</a></li>
-                
-                {/* <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-                </li> */}
                 <li><a>Docs</a></li>
                 <li><a>About</a></li>
-
-
-                
             </ul>
             </div>
             <a className="btn btn-ghost text-xl">Track Your Life</a>
@@ -39,22 +28,24 @@ export default async function Navbar() {
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
             <li><a>Home</a></li>
-            {/* <li>
-                <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-                </details>
-            </li> */}
             <li><a>Docs</a></li>
             <li><a>About</a></li>
             </ul>
         </div>
         <div className="navbar-end gap-3">
             {session?.user ? (
-                <SignOutButton/>
+                // <div className="flex items-center gap-3">
+                //     <p className="text-sm">{session.user.name}</p>
+                //     <SignOutButton/>
+                // </div>
+                <div className="dropdown text-sm">
+                    <div tabIndex={0} role="button" className="btn m-1">{session.user.name}</div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                    <li><a>Profile</a></li>
+                    <li><SignOutButton/></li>
+                    </ul>
+                </div>
+                
             ) : (
                 <LoginWithGoogle/>
             )}

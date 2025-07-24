@@ -7,9 +7,10 @@ export interface IUser extends Document {
     image?: string;
     createdAt: Date;
     journalEntries: {
+      heading: string,
       date: Date;
       text: string;
-      moods: [string, string, string];
+      moods?: [string, string, string];
     }[];
     habits: {
       name: string;
@@ -29,6 +30,7 @@ export interface IUser extends Document {
     journalEntries: {
       type: [
         {
+          heading: { type: String, required: true},
           date: Date,
           text: String,
           moods: [String], // or [String, String, String] if you want to enforce length

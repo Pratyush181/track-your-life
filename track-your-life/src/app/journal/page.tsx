@@ -1,8 +1,5 @@
 "use client"
-import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
-// import { connectToDatabase } from "@/lib/mongoose";
-import User, { IUser } from "@/models/User";
+
 import { useState, useEffect } from "react";
 import JournalCard from "@/components/JournalCard";
 
